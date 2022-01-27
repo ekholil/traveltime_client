@@ -51,7 +51,7 @@ const Blogs = () => {
                 <Spinner className='text-center' animation="border" />
               ) : (
                 currentPosts.map((blog, i) => (
-                  <Blog id={i} blog={blog} key={i}></Blog>
+                  <Blog blog={blog} key={i}></Blog>
                 ))
               )}
              

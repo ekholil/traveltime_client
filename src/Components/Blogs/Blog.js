@@ -10,7 +10,7 @@ const Blog = (props) => {
     author,
     Date,
     img,
-    
+    _id,
     rating,
    
     experience,
@@ -33,7 +33,7 @@ const Blog = (props) => {
         <Card.Body>
           
           <Card.Text>
-            {`${experience.slice(0, 120)}...`} <Link to={`/blog/${props.id}`}>Read More</Link>
+            {`${experience.slice(0, 120)}...`} <Link to={`/blog/${_id}`}>Read More</Link>
           </Card.Text>
         </Card.Body>
       </Card>

@@ -5,14 +5,15 @@ import {AiOutlineStar, AiFillStar} from 'react-icons/ai'
 import Rating from 'react-rating'
 const BlogDetail = () => {
     const [blog, setBlog] = useState({})
-    const {id} = useParams()
+    const {_id} = useParams()
     useEffect(() => {
-        fetch('https://lit-dawn-28420.herokuapp.com/blogs')
+        fetch(`http://localhost:5000/blog/${_id}`)
         .then(res => res.json())
         .then(data => {
-            setBlog(data.find(( item, index) => index == id))
+            setBlog(data)
+            console.log(data)
         })
-    }, [id])
+    }, [_id])
     const {img, Date, author, Location,expense, experience,transportation, rating} = blog;
     return (
         <div>

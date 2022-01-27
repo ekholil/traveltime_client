@@ -41,8 +41,8 @@ const Navigationbar = () => {
                          </Link>
                       </Dropdown.Item>
                       }
-                      <Dropdown.Item to="">
-                        Add Experience
+                      <Dropdown.Item>
+                        <Link to='/addblog'>Add Blog</Link>
                       </Dropdown.Item>
                       <Dropdown.Item onClick={logOut} href="">
                         Log out

@@ -9,7 +9,7 @@ import Home from "./Pages/Home";
 import MyAccount from "./Components/MyAccount/MyAccount";
 import AuthProvider from "./Context/AuthProvider";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-
+import AddBlog from './Components/AddBlog/AddBlog'
 function App() {
   return (
     <div className="App">
@@ -18,9 +18,10 @@ function App() {
           <Navigationbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/blog/:id" element={<BlogDetail />}></Route>
+            <Route path="/blog/:_id" element={<BlogDetail />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/signin" element={<SignIn />}></Route>
+            <Route path="/addblog" element={<PrivateRoute><AddBlog /></PrivateRoute>}></Route>
             <Route path="/myaccount" element={<PrivateRoute><MyAccount /></PrivateRoute>} />
           </Routes>
           <Footer />
