@@ -45,10 +45,10 @@ const Blogs = () => {
       <Container>
         <Row>
           <Col md={9}>
-            <h2>Latest Blogs</h2>
+            <h2 className="text-center py-3">Latest Blogs</h2>
             <Row>
               {loading ? (
-                <Spinner className='text-center' animation="border" />
+               <div style={{height:'70vh', display: 'grid', placeItems:'center'}}> <Spinner className='text-center' color="green" animation="grow" /></div>
               ) : (
                 currentPosts.map((blog, i) => (
                   <Blog blog={blog} key={i}></Blog>

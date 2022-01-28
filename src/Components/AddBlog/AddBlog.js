@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import useAuth from '../../Hooks/useAuth';
 
 const AddBlog = () => {
     const [blogdata, setBlogdata] = useState({})
     const [blogImg, setBlogImg] = useState(null)
     const {admin} = useAuth()
+    const navigate = useNavigate()
     const handleImgUpload = async e => {
         const imageData = new FormData();
         console.log(e.target.files[0]);
@@ -40,8 +43,13 @@ const AddBlog = () => {
         axios.post('https://lit-dawn-28420.herokuapp.com/addblog', blogdata)
         .then(res => {
             console.log(res)
-            if(res.acknowledged){
-                alert('Your blog added')
+            if(res.data.acknowledged){
+                swal({title: "Blog Posted!",
+                text: "Wait for admin approval",
+                icon: "success",
+                button: "Go to Home",}).then( (ok) => {
+                    navigate('/')
+                })
                 setBlogdata({})
             }
         })

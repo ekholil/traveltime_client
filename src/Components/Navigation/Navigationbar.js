@@ -41,6 +41,13 @@ const Navigationbar = () => {
                          </Link>
                       </Dropdown.Item>
                       }
+                      {
+                        admin && <Dropdown.Item>
+                        <Link to='/makeadmin'> 
+                        Make Admin
+                         </Link>
+                      </Dropdown.Item>
+                      }
                       <Dropdown.Item>
                         <Link to='/addblog'>Add Blog</Link>
                       </Dropdown.Item>
