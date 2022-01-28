@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
-import UseFirebase from '../../Hooks/Usefirebase';
 import './Signup.css'
 const Signup = () => {
     const [loginData, setLoginData] = useState({})
-    const {registerUser, user, isLoading} = UseFirebase()
+    const {registerUser, signInWithGoogle, user, isLoading} = useAuth()
     const navigate = useNavigate()
+    const location = useLocation()
+    const handleGoogleSignIn = () => {
+      signInWithGoogle(location, navigate)
+    }
     const handleInput = (e) => {
         const value = e.target.value;
         const name = e.target.name;
@@ -37,6 +40,7 @@ const Signup = () => {
     </label>
     <button type="submit" >{isLoading? <Spinner animation='border' /> :'Register'}</button>
   <h5><a href="/signin">Already Registered? Sign in</a></h5>
+  <button className='btn' onClick={handleGoogleSignIn}>Sign in with Google</button>
   </form>
 </section>
         </div>

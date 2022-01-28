@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import UseFirebase from '../../Hooks/Usefirebase';
+import useAuth from '../../Hooks/useAuth';
 
 const AddBlog = () => {
     const [blogdata, setBlogdata] = useState({})
     const [blogImg, setBlogImg] = useState(null)
-    const {admin} = UseFirebase()
+    const {admin} = useAuth()
     const handleImgUpload = async e => {
         const imageData = new FormData();
         console.log(e.target.files[0]);
@@ -37,7 +37,7 @@ const AddBlog = () => {
         blogdata.img = blogImg;
         blogdata.status = admin? 'approved':'pending'
         blogdata.author = 'Admin'
-        axios.post('http://localhost:5000/addblog', blogdata)
+        axios.post('https://lit-dawn-28420.herokuapp.com/addblog', blogdata)
         .then(res => {
             console.log(res)
             if(res.acknowledged){

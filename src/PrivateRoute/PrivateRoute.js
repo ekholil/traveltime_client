@@ -1,10 +1,10 @@
 import { Spinner } from 'react-bootstrap';
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import UseFirebase from '../Hooks/Usefirebase';
+import useAuth from '../Hooks/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
-    const { user, isLoading } = UseFirebase()
+    const { user, isLoading } = useAuth()
     let location = useLocation();
     if (isLoading) { return <Spinner animation='border' /> }
     if (user.email) {

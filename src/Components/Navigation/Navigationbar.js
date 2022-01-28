@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import UseFirebase from "../../Hooks/Usefirebase";
+import useAuth from "../../Hooks/useAuth";
 
 
 const Navigationbar = () => {
-  const { user, logOut, admin } = UseFirebase();
+  const { user, logOut, admin } = useAuth()
   console.log(admin);
   console.log(user);
   return (

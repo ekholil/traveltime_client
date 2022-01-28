@@ -1,9 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import UseFirebase from '../../Hooks/Usefirebase';
-
+import useAuth from '../../Hooks/useAuth'
 const MyAccount = () => {
-    const {user} = UseFirebase()
+    const {user} = useAuth()
     return (
         <Container className='text-center' style={{height:'70vh', backgroundColor:'white', marginTop: '50px', padding: '100px 0'}}>
             <h4>My Account</h4>
