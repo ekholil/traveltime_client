@@ -1,3 +1,11 @@
 body{
     background-color: rgba(197, 194, 194, 0.3)!important;
 }
+.clink{
+    text-decoration: none;
+    color: rgb(155, 152, 152);
+}
+.drop::before{
+    content: ''!important;
+    display: none!important;
+}

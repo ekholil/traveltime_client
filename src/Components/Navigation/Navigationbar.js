@@ -12,44 +12,48 @@ const Navigationbar = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">TravelTime</Navbar.Brand>
+          <Navbar.Brand>
+            <Link className="clink" to='/'>
+            TravelTime
+            </Link>
+            </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto d-flex align-items-center">
               <Nav.Link href="#features">
-                <Link to="/">Home</Link>
+                <Link className="clink" to="/">Home</Link>
               </Nav.Link>
               <Nav.Link href="#pricing">About Us</Nav.Link>
               <Nav.Link href="#pricing">Contact</Nav.Link>
               {user.email ? (
                 <Nav.Link href="">
                   <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                     Account
+                    <Dropdown.Toggle variant="success" key='none' className="drop">
+                      Account
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
                       <Dropdown.Item>
-                        <Link to='/myaccount'> 
+                        <Link className="clink" to='/myaccount'> 
                         My Account
                          </Link>
                       </Dropdown.Item>
                       {
                         admin && <Dropdown.Item>
-                        <Link to='/manageblogs'> 
+                        <Link className="clink" to='/manageblogs'> 
                         Manage Blogs
                          </Link>
                       </Dropdown.Item>
                       }
                       {
                         admin && <Dropdown.Item>
-                        <Link to='/makeadmin'> 
+                        <Link className="clink" to='/makeadmin'> 
                         Make Admin
                          </Link>
                       </Dropdown.Item>
                       }
                       <Dropdown.Item>
-                        <Link to='/addblog'>Add Blog</Link>
+                        <Link className="clink" to='/addblog'>Add Blog</Link>
                       </Dropdown.Item>
                       <Dropdown.Item onClick={logOut} href="">
                         Log out
@@ -59,7 +63,7 @@ const Navigationbar = () => {
                 </Nav.Link>
               ) : (
                 <Nav.Link href="#pricing">
-                  <Link to="/signin">Sign In</Link>
+                  <Link className="clink" to="/signin">Sign In</Link>
                 </Nav.Link>
               )}
             </Nav>

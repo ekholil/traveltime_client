@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import Rating from "react-rating";
@@ -29,7 +29,7 @@ const BlogDetail = () => {
       <Container>
         <Row>
           <Col md={9}>
-            {blog.author? <div className="p-4 rounded bg-white mt-3">
+            {blog.author? <div className="p-4 rounded bg-white my-3">
               <img className="img-fluid" src={img} alt="" />
               <h1>{Location}</h1>
               <span>{Date}</span> By <b>{author}</b>
@@ -47,7 +47,17 @@ const BlogDetail = () => {
               <p className="fs-5 my-3">{experience}</p>
             </div>: <div style={{height:'70vh', display: 'grid', placeItems:'center'}}><Spinner animation="grow" /></div>}
           </Col>
-          <Col md={3}>top blogs</Col>
+          <Col md={3}>
+          <h2 className="text-center py-4 ">Search Blogs</h2>
+            <Card className="sticky-top" body>
+              <input
+                type="text"
+                placeholder="Search for blogs"
+                className="form-control mb-3"
+              />
+              <button className="btn btn-success">Search</button>
+            </Card>
+          </Col>
         </Row>
       </Container>
     </div>

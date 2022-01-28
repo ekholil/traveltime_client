@@ -29,8 +29,10 @@ const Blog = (props) => {
                 />
                 {`(${rating}/5)`}
                 </p>
+        <Link to={`/blog/${_id}`}>
         <Card.Img variant="top" className="img-fluid" src={img} />
-        <Card.Body>
+        </Link>
+        <Card.Body className="px-0">
           
           <Card.Text>
             {`${experience.slice(0, 120)}...`} <Link to={`/blog/${_id}`}>Read More</Link>

@@ -21,7 +21,7 @@ function App() {
           <Navigationbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/blog/:_id" element={<BlogDetail />}></Route>
+            <Route path="/blog/:_id" element={<PrivateRoute><BlogDetail /></PrivateRoute>}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/signin" element={<SignIn />}></Route>
             <Route path="/addblog" element={<PrivateRoute><AddBlog /></PrivateRoute>}></Route>
